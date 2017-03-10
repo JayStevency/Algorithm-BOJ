@@ -1,0 +1,11 @@
+# 10871
+## Category : Implement
+
+input
+
+10 5
+1 10 4 9 2 3 8 5 7 6
+
+output
+
+1 4 2 3
