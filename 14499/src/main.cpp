@@ -11,6 +11,10 @@ int n, m, k, x, y;
 
 int board[MAX][MAX];
 //0: #, 1: front, 2: back, 3: left, 4: right, 5: up, 6: down
+
+int dice[7];
+int dice_clone[7];
+/*
 pair<int,int> dice[7] = {
        make_pair(0,0),
        make_pair(1,0),
@@ -29,10 +33,10 @@ pair<int,int> dice_clone[7] = {
         make_pair(5,0),
         make_pair(6,0)
 };
+*/
 
 void swap(int i, int j){
-    dice_clone[j].first = dice[i].first;
-    dice_clone[j].second = dice[i].second;
+    dice_clone[j] = dice[i];
 }
 
 //oper east : 1, west : 2, north : 3, south : 4;
@@ -68,17 +72,16 @@ void go(int oper){
     }
 
     for(int i = 0 ; i < 7; i++){
-        dice[i].first = dice_clone[i].first;
-        dice[i].second = dice_clone[i].second;
+        dice[i] = dice_clone[i];
     }
     if(board[x][y] == 0){
-        board[x][y] = dice[6].second;
+        board[x][y] = dice[6];
     }else{
-        dice[6].second = board[x][y];
+        dice[6] = board[x][y];
         board[x][y] = 0;
     }
 
-    cout << dice[1].second << endl;
+    cout << dice[1] << endl;
 }
 
 int main(){
